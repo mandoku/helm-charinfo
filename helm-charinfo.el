@@ -2,7 +2,7 @@
 ;; -*- coding: utf-8 -*-
 ;; created [2016-04-15T12:59:30+0900]
 ;;
-;; Copyright (c) 2016 Christian Wittern
+;; Copyright (c) 2016-2017 Christian Wittern
 ;;
 ;; Author: Christian Wittern <cwittern@gmail.com>
 ;; URL: https://github.com/cwittern/helm-charinfo
@@ -18,7 +18,7 @@
 (defgroup helm-charinfo nil
   "Helm interface for the lookup of information on Chinese
 characters."
-  :group 'mandoku-tls)
+  :group 'helm)
 
 (defcustom helm-charinfo-follow-delay 1
   "Delay before Dictionary summary pops up."
@@ -31,7 +31,6 @@ characters."
   :group 'helm-charinfo)
 
 (defcustom helm-charinfo-unihan-readings
-  "Location for local copy of Unihan readings text."
   (if (boundp 'mandoku-sys-dir)
       (concat mandoku-sys-dir "Unihan_Readings.txt")
     "")
@@ -73,6 +72,7 @@ characters."
       (url-copy-file helm-charinfo-unihan-url  target)
       (if (file-exists-p target)
 	  (with-current-buffer (find-file-noselect helm-charinfo-unihan-readings)
+	    (require 'arc-mode)
 	    (erase-buffer)
 	    (archive-zip-extract target readings)
 	    (save-buffer)
@@ -165,3 +165,5 @@ characters."
 (provide 'helm-charinfo)
 
 
+
+;;; helm-charinfo.el ends here
