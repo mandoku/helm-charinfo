@@ -3,6 +3,7 @@
 ;; created [2016-04-15T12:59:30+0900]
 ;;
 ;; Copyright (c) 2016-2017 Christian Wittern
+;; License: GPL v3, or any later version
 ;;
 ;; Author: Christian Wittern <cwittern@gmail.com>
 ;; URL: https://github.com/cwittern/helm-charinfo
